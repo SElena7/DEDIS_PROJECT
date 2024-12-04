@@ -1,0 +1,33 @@
+{
+  "name": "dedis_project",
+  "version": "1.0.0",
+  "description": "The purpose of this repo is creating a website as a project for the course Data engineering in Distributive systems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SElena7/DEDIS_PROJECT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SElena7/DEDIS_PROJECT/issues"
+  },
+  "homepage": "https://github.com/SElena7/DEDIS_PROJECT#readme",
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.8.0",
+    "@aws-amplify/backend-cli": "^1.4.2",
+    "aws-cdk": "^2.171.1",
+    "aws-cdk-lib": "^2.171.1",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "aws-amplify": "^6.10.2"
+  }
+}
