@@ -1,9 +1,11 @@
 import React from 'react';
 import './Nav.scss';
+import logo from '../../assets/logo_montessori.png';
 
 function Nav() {
   return (
     <div className="nav-container">
+      <img src={logo} alt="Logo" className="nav-logo" />
       <ul className="nav-list">
         <li className="nav-item">
           <a href="#" className="nav-link">About</a>
