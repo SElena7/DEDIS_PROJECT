@@ -1,3 +1,17 @@
+
+.app {
+  display: flex;
+  flex-direction: column; /* Ensure the layout is vertical */
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column; /* Stack About and Gallery vertically */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove padding */
+  flex: 1; /* Take up remaining space if any */
+}
 .app {
   display: flex;
   flex-direction: row;
