@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #dcdcdc;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+  }
+  
+  .footer-left {
+    text-align: left;
+  }
+  
+  .footer-right {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-link {
+    text-decoration: none;
+    color: #4caf50;
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: #2e7d32;
+    }
+  }
+  
