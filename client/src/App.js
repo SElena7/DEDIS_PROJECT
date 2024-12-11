@@ -4,6 +4,8 @@ import About from './pages/about/About';
 import Gallery from './pages/gallery/Gallery';
 import Footer from './components/footer/Footer';
 import Newsfeed from './pages/newsfeed/Newsfeed';
+import Enrollment from './pages/enrollment/Enrollment';
+import SchedulePage from './pages/schedule/SchedulePage';
 import './App.scss';
 
 function App() {
@@ -14,6 +16,9 @@ function App() {
         <About />
         <Gallery />
         <Newsfeed />
+        <Enrollment />
+        <SchedulePage />
+
       </div>
       <Footer />
     </div>

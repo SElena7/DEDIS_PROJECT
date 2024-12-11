@@ -30,8 +30,8 @@ footer {
   background-color: #f8f8f8;
   padding: 10px 20px;
   text-align: center;
-  margin-left: 220px; /* Align footer with content */
-  width: calc(100% - 220px); /* Make footer span the entire screen width excluding the nav */
+  margin-left: 220px;
+  width: calc(100% - 220px); 
 }
 
 .about-container {
@@ -89,8 +89,8 @@ footer {
 
   footer {
     margin-left: 0;
-    width: 100%; /* Ensure footer takes full width on small screens */
-    padding: 10px 0; /* Adjust padding for smaller screen */
+    width: 100%; 
+    padding: 10px 0; 
   }
 
   .about-title {
