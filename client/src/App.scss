@@ -1,20 +1,6 @@
-
 .app {
   display: flex;
-  flex-direction: column; /* Ensure the layout is vertical */
-  height: 100vh;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column; /* Stack About and Gallery vertically */
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove padding */
-  flex: 1; /* Take up remaining space if any */
-}
-.app {
-  display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -31,41 +17,21 @@
   transition: width 0.3s ease;
 }
 
-.nav-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-item {
-  padding: 15px;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.nav-link {
-  color: black;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-transform: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: block;
-  padding: 10px;
-
-  &:hover {
-    color: #4caf50;
-    transform: translateX(5px);
-  }
-}
-
-.nav-link::first-letter {
-  text-transform: capitalize;
-}
-
 .main-content {
+  margin-left: 220px;
   flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+footer {
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  text-align: center;
   margin-left: 220px;
+  width: calc(100% - 220px); 
 }
 
 .about-container {
@@ -113,31 +79,18 @@
     box-shadow: none;
   }
 
-  .nav-list {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nav-item {
-    padding: 10px 20px;
-    border-bottom: none;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-    padding: 8px 12px;
-    display: inline-block;
-  }
-
   .main-content {
     margin-left: 0;
   }
 
   .about-content {
     padding: 20px;
+  }
+
+  footer {
+    margin-left: 0;
+    width: 100%; 
+    padding: 10px 0; 
   }
 
   .about-title {
