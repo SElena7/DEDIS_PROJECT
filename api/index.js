@@ -1,9 +1,9 @@
 const Express = require('express');
 const app = Express();
-const mysql = require('mysql2'); // Import the MySQL package
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const multer = require('multer');
+const { Pool } = require('pg');
 
 //middlewares
 app.use(Express.json());
@@ -11,34 +11,25 @@ app.use(Express.json());
 console.log("Initializing server...");
 
 // Create a connection to the database
-const db = mysql.createConnection({
-    host: 'dedis.cf26yes0ex8o.eu-north-1.rds.amazonaws.com',
-    user: 'selena',
-    password: 'SELena7DEDIS',
-    database: 'dedis',
-    connectTimeout: 10000  // 10 seconds timeout for connection
-});
-
-// Connect to the MySQL database
-db.connect((err) => {
+const pool = new Pool({
+    host: 'aws-0-eu-central-1.pooler.supabase.com',
+    port: 5432,
+    database: 'postgres',
+    user: 'postgres.xjmvxmnngdlpcsqrvxjo',
+    pool_mode:"session",
+    password: 'fvQvv1FCqWD4bGsh', 
+    ssl: {
+      rejectUnauthorized: false, // Disable strict SSL validation
+    },
+  });
+  // Test connection
+  pool.query('SELECT NOW()', (err, res) => {
     if (err) {
-        console.error("Database connection failed:", err.stack);
-        return;
+      console.error('Error connecting to the database:', err);
+    } else {
+      console.log('Database connected:', res.rows);
     }
-    console.log("Connected to the database.");
-});
-
-// Test database query to check if everything is working
-app.get("/testdb", (req, res) => {
-    db.query("SELECT NOW()", (err, result) => {
-        if (err) {
-            res.status(500).send("Error querying database.");
-            return;
-        }
-        res.json(result);
-    });
-});
-
+  });
 app.get("/", (req, res) => {
     res.send("Server is running!");
 });
