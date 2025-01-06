@@ -85,6 +85,54 @@ const deletePost = async (req, res) => {
     }
 };
 
+// Edit an existing post
+const editPost = async (req, res) => {
+    try {
+        const { post_id } = req.params; // Get the post ID from the URL parameters
+        const { title, content, picture_url, status } = req.body; // Get updated fields from the request body
+
+        if (!post_id) {
+            return res.status(400).json({ error: 'Post ID is required' });
+        }
+
+        // Update query
+        const query = `
+            UPDATE posts
+            SET 
+                title = COALESCE($1, title),
+                content = COALESCE($2, content),
+                picture_url = COALESCE($3, picture_url),
+                status = COALESCE($4, status),
+                updated_at = $5
+            WHERE post_id = $6
+            RETURNING *;
+        `;
+
+        const values = [
+            title || null, // Allow partial updates
+            content || null,
+            picture_url || null,
+            status || null,
+            moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'), // Set updated_at to the current timestamp
+            post_id,
+        ];
+
+        const result = await pool.query(query, values);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Post not found' });
+        }
+
+        return res.status(200).json({
+            message: 'Post updated successfully',
+            updatedPost: result.rows[0],
+        });
+    } catch (err) {
+        console.error('Error updating post:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 
 // Export functions
-module.exports = { getPosts, addPost, deletePost };
+module.exports = { getPosts, addPost, deletePost, editPost };
