@@ -5,6 +5,8 @@ const cors = require('cors');
 const multer = require('multer');
 const pool = require('./connect'); // Import the pool from connect.js
 const postRoutes = require("./routes/posts.js"); // Use require instead of import
+const studentsRoutes = require("./routes/students.js");
+
 
 // Middlewares
 app.use(Express.json());
@@ -23,3 +25,4 @@ app.listen(8800, () => {
 
 app.use("/api/posts", postRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/students", studentsRoutes);
