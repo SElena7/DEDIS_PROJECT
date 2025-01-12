@@ -1,0 +1,89 @@
+.schedule {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.schedule-title {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-title h2 {
+  font-size: 1.5rem;
+}
+
+.edit-title-button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: #cccccc; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #999999;
+  }
+}
+
+.edit-title-input {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.submit-title-button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: #388e3c;
+  }
+}
+
+.schedule-image {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    max-width: 100%; 
+    height: auto; 
+  }
+}
+
+.edit-image {
+  margin-top: 10px;
+
+  input[type='file'] {
+    font-size: 1rem;
+  }
+}
+
+.delete-schedule-button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e53935;
+  }
+}

@@ -1,0 +1,42 @@
+.newsfeed-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.add-news-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.add-news-btn:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .news-cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .newscard {
+    max-width: 100%;
+  }
+}
