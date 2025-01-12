@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import Newsfeed from './pages/newsfeed/Newsfeed';
 import Enrollment from './pages/enrollment/Enrollment';
 import SchedulePage from './pages/schedule/SchedulePage';
+import Donations from './pages/donations/Donations';
 import './App.scss';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Newsfeed />
         <Enrollment />
         <SchedulePage />
-
+        <Donations />
       </div>
       <Footer />
     </div>
