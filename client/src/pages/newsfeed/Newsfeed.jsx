@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Newscard from '../../components/newscard/Newscard';
 import './Newsfeed.scss';
 
 function Newsfeed() {
-  const newsData = [
+  const [newsData, setNewsData] = useState([
     {
       title: "Deserunt aliquip dolor dolore enim magna ea irure excepteur consectetur deserunt.",
       text: "Consectetur enim aliqua laboris anim do velit eu ipsum reprehenderit officia. Esse proident cillum veniam dolor consectetur est aute fugiat id occaecat. Sunt dolor magna id commodo officia veniam laborum aliquip commodo.",
@@ -34,15 +34,47 @@ function Newsfeed() {
       text: "Sit labore esse sunt incididunt adipisicing est aliquip proident ullamco dolore est irure culpa adipisicing. Dolore tempor ex ad excepteur est laborum ullamco commodo ipsum aliquip laborum ut. Reprehenderit proident incididunt commodo et id irure exercitation. Fugiat dolor ullamco nulla in laboris cupidatat occaecat amet ullamco non laborum laborum consectetur duis. Labore nisi sunt sunt tempor est culpa. Non adipisicing id est aute voluptate ut nisi duis ut anim fugiat proident consequat. Laborum sint ad laboris consectetur pariatur proident nostrud.",
       date: "January 30, 2024",
     },
-  ];
+  ]);
+
+  const handleDelete = (index) => {
+    const newNewsData = [...newsData];
+    newNewsData.splice(index, 1);
+    setNewsData(newNewsData);
+  };
+
+  const handleEdit = (index, newTitle, newText, newDate) => {
+    const newNewsData = [...newsData];
+    newNewsData[index] = { ...newNewsData[index], title: newTitle, text: newText, date: newDate };
+    setNewsData(newNewsData);
+  };
 
   const sortedNewsData = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div className="newsfeed-container">
-      {sortedNewsData.map((news, index) => (
-        <Newscard key={index} title={news.title} text={news.text} date={news.date} />
-      ))}
+      <button
+        className="add-news-btn"
+        onClick={() =>
+          setNewsData([
+            ...newsData,
+            { title: "New Title", text: "New text content", date: "January 1, 2025" },
+          ])
+        }
+      >
+        Add New Post
+      </button>
+      <div className="news-cards-wrapper">
+        {sortedNewsData.map((news, index) => (
+          <Newscard
+            key={index}
+            title={news.title}
+            text={news.text}
+            date={news.date}
+            onDelete={() => handleDelete(index)}
+            onEdit={(newTitle, newText, newDate) => handleEdit(index, newTitle, newText, newDate)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
