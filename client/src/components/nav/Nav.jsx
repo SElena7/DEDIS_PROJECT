@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 import logo from '../../assets/logo_montessori.png';
 
@@ -8,22 +9,22 @@ function Nav() {
       <img src={logo} alt="Logo" className="nav-logo" />
       <ul className="nav-list">
         <li className="nav-item">
-          <a href="#" className="nav-link">About</a>
+          <Link to="/about" className="nav-link">About</Link>
         </li>
         <li className="nav-item">
-          <a href="#about" className="nav-link">Newsfeed</a>
+          <Link to="/newsfeed" className="nav-link">Newsfeed</Link>
         </li>
         <li className="nav-item">
-          <a href="#services" className="nav-link">Enrollment</a>
+          <Link to="/enrollment" className="nav-link">Enrollment</Link>
         </li>
         <li className="nav-item">
-          <a href="#contact" className="nav-link">Gallery</a>
+          <Link to="/gallery" className="nav-link">Gallery</Link>
         </li>
         <li className="nav-item">
-          <a href="#contact" className="nav-link">Schedule</a>
+          <Link to="/schedule" className="nav-link">Schedule</Link>
         </li>
         <li className="nav-item">
-          <a href="#contact" className="nav-link">Donations</a>
+          <Link to="/donations" className="nav-link">Donations</Link>
         </li>
       </ul>
     </div>
