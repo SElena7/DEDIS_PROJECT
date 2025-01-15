@@ -8,6 +8,7 @@ const studentsRoutes = require("./routes/students.js");
 const authRoutes = require("./routes/auth.js")
 
 // Middlewares
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(Express.json());
 
 console.log("Initializing server...");
@@ -22,7 +23,6 @@ app.listen(8800, () => {
     console.log("API working!!");
 });
 
-app.use("/api/posts", postRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/students", studentsRoutes);
 app.use("/api/auth", authRoutes);
