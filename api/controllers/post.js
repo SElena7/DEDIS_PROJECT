@@ -3,6 +3,10 @@ const moment = require('moment');
 
 // Get posts
 const getPosts = async (req, res) => {
+
+    //const { authorId } = req.query;
+    // If authorId is not provided, fetch all posts (or filter as necessary)
+    
     try {
         const query = `
             SELECT p.*, u.id AS author_id, u.name 
@@ -13,7 +17,7 @@ const getPosts = async (req, res) => {
             p.created_at DESC;
         `;
 
-        const authorId = req.query.authorId || req.body.authorId;
+       const authorId = req.query.authorId || req.body.authorId;
         if (!authorId) {
             return res.status(400).json({ error: 'Author ID is required' });
         }

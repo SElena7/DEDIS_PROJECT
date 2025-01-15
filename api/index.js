@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth.js")
 
 // Middlewares
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cookieParser());
 app.use(Express.json());
 
 console.log("Initializing server...");

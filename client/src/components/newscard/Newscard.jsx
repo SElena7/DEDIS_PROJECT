@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import './Newscard.scss';
 
 function Newscard({ title, text, date, onDelete, onEdit }) {
@@ -11,6 +12,10 @@ function Newscard({ title, text, date, onDelete, onEdit }) {
     onEdit(newTitle, newText, newDate);
     setIsEditing(false);
   };
+
+  const { currentUser } = useContext(AuthContext);
+
+  const isAdmin = currentUser?.id === 1; // Check if the logged-in user is an admin
 
   return (
     <div className="newscard">
@@ -42,10 +47,11 @@ function Newscard({ title, text, date, onDelete, onEdit }) {
           <h3 className="newscard-title">{title}</h3>
           <p className="newscard-text">{text}</p>
           <div className="newscard-date">{date}</div>
+          {isAdmin && (
           <div className="newscard-actions">
             <button onClick={() => setIsEditing(true)} className="edit-btn">Edit post</button>
             <button onClick={onDelete} className="delete-btn">Delete</button>
-          </div>
+          </div> )}
         </div>
       )}
     </div>

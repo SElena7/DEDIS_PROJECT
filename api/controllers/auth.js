@@ -75,4 +75,14 @@ const logout = (req, res) => {
 
 };
 
-module.exports = { register, login, logout };
+const getCurrentUser = (req, res) => {
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json("Not authenticated!");
+
+    jwt.verify(token, "secretkey", (err, user) => {
+        if (err) return res.status(403).json("Token is not valid!");
+        res.status(200).json(user);
+    });
+};
+
+module.exports = { register, login, logout, getCurrentUser };
